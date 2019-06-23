@@ -30,8 +30,10 @@ function checkForMatch(){
 }
 };
 
-function flipcard(cardId) {
+function flipcard() {
+    this.getAttribute('cardId');
     checkForMatch();
+    this.setAttribute('src','cards[cardId].cardImage');
     if (cardsInPlay.length === 2)
      alert("Sorry,try again.");
      if (cardsInPlay[0] === cardsInPlay[1]) {
@@ -48,8 +50,14 @@ console.log(cards[cardId].cardImage);
 console.log (cards[cardId].suit);
 }
 
-
-
-
-flipcard(0);
-flipcard(2);
+var createBoard = function () {
+    for (var i = 0 i < cards.length; i++){
+        //loop through card array.
+        var cardElement = document.createElement ('img');
+        cardElement.setAttribute('src',"images/back.png");
+        cardElement.setAttribute('data id', i);
+           document.getElementById('game-board').appendChild(cardElement);
+    }
+    document.getElementsByTagName('flipCard')[0].addEventListener('click', cardElement);
+}
+createBoard();
